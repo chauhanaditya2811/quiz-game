@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Night — Test your trivia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <span class="kicker">Table 7, ready to play</span>
+  <h1>Quiz Night</h1>
+  <p>Four rounds, six questions each, fifteen seconds a question. Pick a category and see how you do.</p>
+</header>
+
+<main class="app-shell">
+
+  <!-- Start screen -->
+  <section class="screen is-active" id="screen-start">
+    <div class="card">
+      <h2>Choose your round</h2>
+      <p style="color:var(--muted); margin-bottom:20px;">Tap a category to lock it in.</p>
+      <div class="category-grid" id="category-grid"><!-- filled by app.js --></div>
+      <div class="start-footer">
+        <p id="selected-note">Pick a category to see how many questions and how much time you'll get.</p>
+        <button class="btn" id="start-btn" disabled>Start quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Play screen -->
+  <section class="screen" id="screen-play">
+    <div class="card">
+      <div class="play-topbar">
+        <div class="progress-dots" id="progress-dots"></div>
+        <div class="scoreboard">SCORE <strong id="live-score">0</strong></div>
+      </div>
+
+      <div class="timer-track"><div class="timer-bar" id="timer-bar"></div></div>
+      <div class="timer-label"><span id="timer-num">15</span>s</div>
+
+      <p class="question-cat" id="question-cat"></p>
+      <h3 class="question-text" id="question-text"></h3>
+
+      <div class="options-list" id="options-list"></div>
+
+      <div class="play-footer">
+        <button class="btn" id="next-btn" style="display:none">Next question</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results screen -->
+  <section class="screen" id="screen-results">
+    <div class="card">
+      <div class="results-top">
+        <div class="score-display"><span id="result-score">0</span><span id="result-total">/ 6</span></div>
+        <p id="result-line"></p>
+      </div>
+
+      <h3>How you did, question by question</h3>
+      <div class="review-list" id="review-list"></div>
+
+      <div class="results-footer">
+        <button class="btn" id="retry-btn">Play this round again</button>
+        <button class="btn btn--ghost" id="change-cat-btn">Choose another category</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<p class="app-footer">Quiz Night — a small trivia app, made to play at the table.</p>
+
+<script src="quiz-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
